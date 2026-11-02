@@ -69,11 +69,7 @@ For a production build of the generated site, run `npm run build`. Vite creates 
 
 ## Deploy React Studio
 
-React Studio itself requires a Node.js host because the Ollama key is sent to its server, which forwards it to Ollama. Static-only hosting is not sufficient. Use HTTPS for any public deployment.
-
-- Build command: `npm install && npm run build`
-- Start command: `npm start`
-- Configure the host to provide its assigned `PORT`.
+React Studio includes a Node.js API endpoint for Ollama generation. On Vercel, the `api/generate.js` function serves `POST /api/generate` alongside the Vite frontend; deploy this repository with the Vite preset and the default build command (`npm run build`). On a traditional Node.js host, use the `npm start` command and configure the host to provide its assigned `PORT`. Use HTTPS for any public deployment.
 
 Each user enters their own Ollama key. Do not put a shared API key in frontend code or commit one to this project.
 
